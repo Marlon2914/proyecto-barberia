@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compañeros Estilo & Elegancia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="Menu container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="Imagenes/icononew.jpg" alt="o" width="100" height="100">
+                    My Barberia
+                </a>
+            </div>
+            <input type="checkbox" id="Menu" />
+            <label for="menu">
+                <img src="Imagenes/menu.png" class="menu-icono" alt="" />
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="informacion_inicio.html"> Cierre de sesión <i class="fas fa-sign-out-alt"></i></a></li>
+                    <li><a href="informacion_servicio.html"> Servicio <i class="fas fa-tools"></i></a></li>
+                    <li><a href="informacion_productos.html"> Compras <i class="fas fa-shopping-cart"></i></a></li>
+                    <li><a href="informacion_bienvenida.html"> Bienvenida <i class="fas fa-handshake"></i></a></li>
+                    <li><a href="informacion_contacto.html"> Contactos <i class="fas fa-address-book"></i></a></li>
+                    <li><a href="generar_tique.html"> Generar tique <i class="fas fa-ticket-alt"></i></a></li>
+                    <li><a href="reserva_ahora.html"> Reserva ahora <i class="fas fa-calendar-plus"></i></a></li>
+
+                    
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <script>
+        const menu = document.querySelector('.Menu');
+        const menuIcon = document.querySelector('.menu-icono');
+
+        menuIcon.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+
+    <div class="header-content container">
+        <div class="header-txt">
+            <h1>D' Compañeros Estilo & Elegancia</h1>
+            <span><i class="fas fa-cut"></i> Barbershop</span>
+
+            <p>
+                ¡Bienvenido a nuestra barbería! Aquí te ofrecemos los mejores cortes de cabello y servicios de afeitado
+                para hombres.
+                Nuestro equipo de expertos barberos está comprometido con brindarte una experiencia excepcional,
+                asegurándonos de que salgas luciendo y sintiéndote renovado y seguro. ¡Esperamos poder atenderte pronto!
+            </p>
+            <a href="Mision_barberia.html" class="btn-1"><i class="fas fa-info-circle"></i> Nosotros</a>
+        </div>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+        <div class="header-dir">
+            <div class="dir">
+                <h3><i class="fas fa-map-marker-alt"></i> Dirección</h3>
+                <p>C. Trina Moya Sector: Los minas
+
+                </p>
+            </div>
+            <div class="dir">
+                <h3><i class="fas fa-phone-alt"></i> Celular</h3>
+                <p>829-727-6739</p>
+                <p>809-441-8735</p>
+            </div>
+            <div class="dir">
+                <h3><i class="far fa-clock"></i> Horarios</h3>
+                <p>Lunes a Viernes</p>
+                <p>9:00.AM a 9:00.PM</p>
+                <h3>Sabados y Domingos</h3>
+                <p>Horario especial</p>
+            </div>
+        </div>
+    </div>
+
+    </header>
+
+
+    <section class="Bienvenido">
+        <div class="Bienvenido-1">
+            <img src="imagen-barberia.jpg" alt="Barberia" class="img-responsive">
+        </div>
+        <div class="Bienvenido-2">
+            <h2><i class="fas fa-cut"></i> Bienvenidos a nuestra Barbería</h2>
+            <p class="b1">
+                En este espacio, encontrarán no solo servicios de alta calidad,
+                sino también un ambiente acogedor donde
+                pueden relajarse y disfrutar de un momento dedicado exclusivamente a ustedes.
+            </p>
+            <p>
+                ¡Esperamos que disfruten de su tiempo con nosotros y que se conviertan 
+                en clientes habituales de nuestra barbería!
+            </p>
+            <div class="btn-container">
+                <a href="informacion_bienvenida.html" class="btn-1">Recortes</a>
+                <a href="informacion_servicio.html" class="btn-1">Servicios</a>
+                <a href="informacion_contacto.html" class="btn-1">Contacto</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="services container">
+
+        <div class="service-txt">
+            <h2><i class="fas fa-tools"></i> Nuestros servicios</h2>
+
+            <hr>
+            <p>
+                Este sistema ofrece una variedad de servicios que van desde los más básicos hasta los más
+                completos y especializados. Elige de nuestro servicio el que mejor te convenga.
+            </p>
+        </div>
+
+        <div class="service-group">
+
+            <div class="services-1">
+
+                <img src="Imagenes/i1.svg" alt="">
+                <h3>Servicio 1</h3>
+                <p>
+                    Entra y enterate de nuestro servicio basico de recorte de pelo.
+                </p>
+                <li><a href="servicio_1A.html">Servicio Uno A</a></li>
+
+            </div>
+
+            <div class="services-1">
+
+                <img src="Imagenes/i2.svg" alt="">
+                <h3>Servicio 2</h3>
+                <p>
+                    Entra y enterate de nuestro servicio Intermedio de recorte de pelo.
+                </p>
+                <li><a href="servicio_maximo.html">Servicio Maximo</a></li>
+
+            </div>
+
+            <div class="services-1">
+
+                <img src="Imagenes/i3.svg" alt="">
+                <h3>Servicio 3</h3>
+                <p>
+                    Enterate de nuestro servicio Avanzado de recorte de pelo.
+                </p>
+                <li><a href="servicio_premium.html">Servicio premium full</a></li>
+
+            </div>
+            <a href="#" class="btn-1"><i class="fas fa-info-circle"></i> Información</a>
+        </div>
+
+    </main>
+
+
+
+    <section class="prices" aria-labelledby="prices-heading">
+        <div class="prices-container">
+            <h2 id="prices-heading"><i class="fas fa-dollar-sign"></i> Lista de Precios</h2>
+            <p>
+                En nuestra barbería, ofrecemos una amplia gama de servicios diseñados para satisfacer todas las necesidades de cuidado capilar y facial de nuestros clientes. Nuestra lista de precios detallada incluye desde cortes de cabello estándar hasta tratamientos de barbería de lujo, asegurando que cada cliente encuentre exactamente lo que busca.
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Servicio</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Corte de cabello estándar</td>
+                        <td>$300</td>
+                    </tr>
+                    <tr>
+                        <td>Tinte de pelo masculino</td>
+                        <td>$600</td>
+                    </tr>
+                    <tr>
+                        <td>Solo afeitado de barba</td>
+                        <td>$180</td>
+                    </tr>
+                    <tr>
+                        <td>Cerquilo</td>
+                        <td>$200</td>
+                    </tr>
+                    <tr>
+                        <td>Recorte de niños</td>
+                        <td>$150</td>
+                    </tr>
+                    <tr>
+                        <td>A Domicilio</td>
+                        <td>$1200</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="#" class="btn-1"><i class="fas fa-info-circle"></i> Información</a>
+        </div>
+        <div class="prices-image"></div>
+    </section>
+    
+
+
+    <section class="personal container">
+
+        <div class="personal-txt">
+
+            <h2 id="barbers-heading"><i class="fas fa-user-md"></i> Nuestros Barberos</h2>
+            <hr>
+            <p>
+                En compañeros Estilo & Elegancia Barber Shop, no solo nos dedicamos a cortar cabello,
+                ¡sino que también creamos tendencias!
+
+            </p>
+
+        </div>
+
+        <div class="personal-group">
+
+            <div class="personal-1">
+                <img src="Imagenes/b11.jpeg" alt="">
+                <h3>Peluqueros</h3>
+                <p>
+                    En nuestra barbería, la precisión es nuestra especialidad.
+                    Con manos expertas Roberh Franco, te garantizara un corte de cabello
+                    que se adapte perfectamente a tus rasgos faciales y
+                    a tu estilo personal.
+                </p>
+                <a href="#">Saber mas</a>
+            </div>
+
+            <div class="personal-1">
+                <img src="Imagenes/b22.jpeg" alt="">
+                <h3>Peluqueros</h3>
+                <p>
+                    Buscas un cambio de imagen moderno y sofisticado? ¡Estás en el lugar correcto! Alex Medina,
+                    nuestro profesional te brindara un servicio de alta calidad con cortes de cabello y
+                    estilos que están a la vanguardia de la moda masculina.
+                </p>
+                <a href="#">Saber mas</a>
+            </div>
+
+            <div class="personal-1">
+                <img src="Imagenes/b33.jpeg" alt="">
+                <h3>Peluqueros</h3>
+                <p>
+                    Gil Matos, no solo te ofrece un corte de cabello impecable, sino también la
+                    experiencia clásica de un afeitado tradicional. Déja cuidar de tu apariencia con atención al
+                    detalle y un toque de elegancia.
+                </p>
+                <a href="#">Saber mas</a>
+            </div>
+        </div>
+        <a href="#" class="btn-1"><i class="fas fa-info-circle"></i> Información</a>
+
+    </section>
+
+
+
+    <footer>
+
+        <div class="footer-bg">
+            <h2 id="appointments-heading"><i class="fas fa-calendar-alt"></i> Reserva de citas</h2>
+
+            <div class="container">
+                <h1> D' Compañeros Estilo & Elegancia</h1>
+                <div id="appointmentView" class="form-group">
+                        <label for="nombre">Nombre:</label><br>
+                        <input type="text" id="nombre" name="nombre" required><br><br>
+                
+                        <label for="telefono">Teléfono:</label><br>
+                        <input type="tel" id="telefono" name="telefono" required><br><br>
+                
+                        <label for="hora">Hora de la cita:</label><br>
+                        <input type="time" id="hora" name="hora" required><br><br>
+
+                    <label for="appointmentDate">Seleccione la fecha de la cita:</label>
+                    <input type="date" id="appointmentDate">
+                    <button onclick="showCutTypeView()">Siguiente</button>
+                </div>
+                <div id="cutTypeView" class="form-group" style="display: none;">
+                    <label for="cutType">Seleccionar tipo de corte:</label>
+                    <img src="Imagenes/Tipo de cortes.JPG" alt="Regular Cut" onclick="selectCutType('Corte', 20)">
+                    <select id="cutType">
+                        <option value="slicked back - peinado hacia atrás">Slicked back - Peinado hacia atrás</option>
+                        <option value="jelly roll - rollo de gelatina">jelly roll - Rollo de gelatina</option>
+                        <option value="comb over - peinar">Comb over - Peinar</option>
+                        <option value="blurry fade - desvanecimiento borroso">Blurry fade - Desvanecimiento borroso</option>
+                        <option value="4AM FADE - DESTEÑIR">4AM FADE - DESTEÑIR</option>
+                        <option value="high pomp - alta pompa">High pomp - alta pompa</option>
+                        <option value="Messy pomp - pompa desordenada">pompa desordenada</option>
+                        <option value="peinado hacia atrás">Peinado hacia atrás</option>
+                        <option value="Corte de pelo degradado">Corte de pelo degradado</option>
+                        <option value="corte texturizado">Corte texturizado</option>
+                    </select>
+                    <button onclick="showBarberView()">Siguiente</button>
+                </div>
+                <div id="barberView" class="form-group" style="display: none;">
+                    <label for="barber">Seleccionar Barbero:</label>
+                    <div style="display: flex; flex-direction: center row;">
+                        <div style="margin-right: 20px;">
+                            <img src="Imagenes/b11.jpeg" alt="Regular Cut" onclick="selectCutType('Barbero', 20)" width="200px">
+                            <p>Roberh Franco</p>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <img src="Imagenes/Alex Medina.JPG" alt="Regular Cut" onclick="selectCutType('Barbero', 20)" width="200px">
+                            <p>Alex Medina</p>
+                        </div>
+                        <div>
+                            <img src="Imagenes/b33.jpeg" alt="Regular Cut" onclick="selectCutType('Barbero', 20)" width="200px">
+                            <p>Gil Matos</p>
+                        </div>
+                    </div>
+                    <select id="barber">
+                        <option value="roberh Franco">Roberh Franco</option>
+                        <option value="alex Medina">Alex Medina</option>
+                        <option value="gil Matos">Gil Matos</option>
+                        <option value="alberth Polanco">Alberth Polanco (Niños)</option>
+                        <option value="jonathan Abreu">Jonathan Abreu (Niños)</option>
+                    </select>
+                    <button onclick="showTrimTypeView()">Siguiente</button>
+                </div>
+                <div id="trimTypeView" class="form-group" style="display: none;">
+                    <label for="trimType">Seleccionar tipo de recorte:</label>
+                    <img src="Imagenes/tipo de recortebb.JPG" alt="Recorte sencillo" onclick="selectTrimType('Recorte sencillo', 15)">
+                    <select id="trimType">
+                        <option value="recorte sencillo">Recorte sencillo</option>
+                        <option value="recorte regular">Recorte regular</option>
+                        <option value="recorte intermedio">Recorte intermedio</option>
+                        <option value="recorte Experto">Recorte Experto</option>
+                        <option value="recorte Experto">Corte en capas</option>
+                    </select>
+                    <button onclick="bookAppointment()">Guardar y Enviar tu reserva</button>
+                </div>
+
+        <script>
+            function showCutTypeView() {
+                document.getElementById('appointmentView').style.display = 'none';
+                document.getElementById('cutTypeView').style.display = 'block';
+            }
+
+            function showBarberView() {
+                document.getElementById('cutTypeView').style.display = 'none';
+                document.getElementById('barberView').style.display = 'block';
+            }
+
+            function showTrimTypeView() {
+                document.getElementById('barberView').style.display = 'none';
+                document.getElementById('trimTypeView').style.display = 'block';
+            }
+
+            function selectCutType(cutType, price) {
+                // Aquí podrías almacenar la selección del cliente, por ejemplo, en variables JavaScript
+
+                var selectedCutType = "";
+                var selectedPrice = 0;
+                alert('Seleccionaste ' + cutType + ' por $' + price);
+            }
+
+            function selectBarber(barber) {
+                // Aquí podrías almacenar la selección del cliente, por ejemplo, en variables JavaScript
+                alert('Seleccionaste al barbero ' + barber);
+            }
+
+            function selectTrimType(trimType, price) {
+                // Aquí podrías almacenar la selección del cliente, por ejemplo, en variables JavaScript
+                alert('Seleccionaste ' + trimType + ' por $' + price);
+            }
+
+            function bookAppointment() {
+                // Aquí podrías enviar la reserva al servidor o realizar cualquier otra acción necesaria
+                alert('Cita reservada con éxito!');
+                // Puedes redirigir a una página de confirmación u otra acción
+            }
+        </script>
+
+            </div>
+            <div class="footer-txt">
+                <p>
+                    Nuestros expertos barberos se especializan en cortes
+                    que resaltan la masculinidad y la elegancia.
+                </p>
+
+            </div>
+
+    </footer>
+
+    <footer>
+        <p>&copy; 2024, Compañeros con Estilo y Elegancia.
+
+        </p>
+    </footer>
+
+</body>
+
+</html>

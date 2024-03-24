@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Reservas de Citas</title>
+<style>
+/* Estilos CSS */
+body {
+    font-family: 'Roboto Slab', serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.btn {
+    background-color: #62f36b;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #8c6e3b;
+}
+
+.barbershop-sign {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.barbershop-sign h1 {
+    font-size: 36px;
+    color: #bf935f;
+    margin: 0;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.barbershop-sign p {
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+    <header class="header">
+        <div class="Menu container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="Imagenes/icononew.jpg" alt="o" width="250" height="250">
+                    My Barberia
+                </a>
+            </div>
+<div class="container">
+    <h2>Reservas de Citas</h2>
+    <div id="formulario">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre">
+        </div>
+        <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono">
+        </div>
+        <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha">
+        </div>
+        <div class="form-group">
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora">
+        </div>
+        <div class="form-group">
+            <label for="tipo-corte">Tipo de Corte:</label>
+            <select id="tipo-corte">
+                <option value="normal">Normal</option>
+                <option value="diseño">Diseño</option>
+                <option value="afeitado">Afeitado</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="barbero">Barbero:</label>
+            <select id="barbero">
+                <option value="juan">Juan</option>
+                <option value="pedro">Pedro</option>
+                <option value="luis">Luis</option>
+            </select>
+        </div>
+        <button class="btn" onclick="guardarCita()">Guardar y Enviar</button>
+        <button class="btn" onclick="cancelarCita()">Cancelar</button>
+    </div>
+</div>
+
+<a href="lista.html" class="btn">Ver Lista de Citas</a>
+</div>
+
+<script>
+// JavaScript
+
+let reservasDeCitas = [];
+
+function guardarCita() {
+    const nombre = document.getElementById('nombre').value;
+    const telefono = document.getElementById('telefono').value;
+    const fecha = document.getElementById('fecha').value;
+    const hora = document.getElementById('hora').value;
+    const tipoCorte = document.getElementById('tipo-corte').value;
+    const barbero = document.getElementById('barbero').value;
+
+    if (nombre && telefono && fecha && hora && tipoCorte && barbero) {
+        reservasDeCitas.push({ nombre, telefono, fecha, hora, tipoCorte, barbero });
+        localStorage.setItem('reservasDeCitas', JSON.stringify(reservasDeCitas));
+        alert('Cita guardada correctamente.');
+        limpiarFormulario();
+    } else {
+        alert('Por favor complete todos los campos.');
+    }
+}
+
+function limpiarFormulario() {
+    document.getElementById('nombre').value = '';
+    document.getElementById('telefono').value = '';
+    document.getElementById('fecha').value = '';
+    document.getElementById('hora').value = '';
+}
+
+function cancelarCita() {
+    limpiarFormulario();
+}
+</script>
+</body>
+</html>

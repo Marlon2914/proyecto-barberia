@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        input {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        #formulario {
+            display: none;
+        }
+
+        #lista-turnos {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        #lista-turnos li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="Menu container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="Imagenes/icononew.jpg" alt="o" width="200" height="200">
+                </a>
+            </div>
+
+    <div class="container">
+        <h1>Compañeros Estilo & Elegancia</h1>
+        <button id="btn-turno">Obtener turno</button>
+        <button id="btn-agregar">Agregar turno</button>
+        <button id="btn-eliminar-todos">Eliminar todos los turnos</button>
+        <div id="turno-container">
+            <h2>Turnos:</h2>
+            <ul id="lista-turnos"></ul>
+        </div>
+        <div id="formulario">
+            <h2>Administrar Turnos:</h2>
+            <form id="form-turno">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+                <label for="turno">Turno:</label>
+                <input type="text" id="turno-edit" required>
+                <button type="submit">Agregar</button>
+                <button type="button" id="btn-cancelar">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const btnTurno = document.getElementById("btn-turno");
+            const btnAgregar = document.getElementById("btn-agregar");
+            const btnCancelar = document.getElementById("btn-cancelar");
+            const btnEliminarTodos = document.getElementById("btn-eliminar-todos");
+            const turnoContainer = document.getElementById("turno-container");
+            const listaTurnos = document.getElementById("lista-turnos");
+            const formulario = document.getElementById("formulario");
+            const formTurno = document.getElementById("form-turno");
+
+            let turnos = [];
+
+            // Función para generar un número de turno aleatorio
+            function generarTurno() {
+                return Math.floor(Math.random() * 1000) + 1;
+            }
+
+            // Función para mostrar la lista de turnos
+            function mostrarTurnos() {
+                listaTurnos.innerHTML = "";
+                turnos.forEach(function(turno, index) {
+                    const li = document.createElement("li");
+                    li.textContent = `${turno.nombre} - Turno: ${turno.numero}`;
+                    
+                    // Botón para eliminar turno individual
+                    const btnEliminar = document.createElement("button");
+                    btnEliminar.textContent = "Eliminar";
+                    btnEliminar.addEventListener("click", function() {
+                        turnos.splice(index, 1);
+                        mostrarTurnos();
+                    });
+                    
+                    li.appendChild(btnEliminar);
+                    listaTurnos.appendChild(li);
+                });
+            }
+
+            // Evento click para obtener turno
+            btnTurno.addEventListener("click", function() {
+                const nombre = prompt("Ingrese su nombre:");
+                if (nombre) {
+                    const nuevoTurno = {
+                        nombre: nombre,
+                        numero: generarTurno()
+                    };
+                    turnos.push(nuevoTurno);
+                    mostrarTurnos();
+                }
+            });
+
+            // Evento click para mostrar formulario de agregar turno
+            btnAgregar.addEventListener("click", function() {
+                formulario.style.display = "block";
+            });
+
+            // Evento click para cancelar agregar turno
+            btnCancelar.addEventListener("click", function() {
+                formulario.style.display = "none";
+            });
+
+            // Evento submit para agregar turno desde el formulario
+            formTurno.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const nombre = document.getElementById("nombre").value;
+                const turno = document.getElementById("turno-edit").value;
+                if (nombre && turno) {
+                    const nuevoTurno = {
+                        nombre: nombre,
+                        numero: turno
+                    };
+                    turnos.push(nuevoTurno);
+                    mostrarTurnos();
+                    formTurno.reset();
+                    formulario.style.display = "none";
+                }
+            });
+
+            // Evento click para eliminar todos los turnos
+            btnEliminarTodos.addEventListener("click", function() {
+                turnos = [];
+                mostrarTurnos();
+            });
+
+            // Mostrar turnos iniciales
+            mostrarTurnos();
+        });
+    </script>
+</body>
+</html>
+
