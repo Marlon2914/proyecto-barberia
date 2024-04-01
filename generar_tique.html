@@ -59,6 +59,8 @@
                     <img src="Imagenes/icononew.jpg" alt="o" width="200" height="200">
                 </a>
             </div>
+        </div>
+    </header>
 
     <div class="container">
         <h1>Compañeros Estilo & Elegancia</h1>
@@ -75,7 +77,7 @@
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" required>
                 <label for="turno">Turno:</label>
-                <input type="text" id="turno-edit" required>
+                <input type="number" id="turno-edit" required>
                 <button type="submit">Agregar</button>
                 <button type="button" id="btn-cancelar">Cancelar</button>
             </form>
@@ -95,17 +97,12 @@
 
             let turnos = [];
 
-            // Función para generar un número de turno aleatorio
-            function generarTurno() {
-                return Math.floor(Math.random() * 1000) + 1;
-            }
-
             // Función para mostrar la lista de turnos
             function mostrarTurnos() {
                 listaTurnos.innerHTML = "";
                 turnos.forEach(function(turno, index) {
                     const li = document.createElement("li");
-                    li.textContent = `${turno.nombre} - Turno: ${turno.numero}`;
+                    li.textContent = `${turno.nombre} - Turno: ${index + 1}`;
                     
                     // Botón para eliminar turno individual
                     const btnEliminar = document.createElement("button");
@@ -125,8 +122,7 @@
                 const nombre = prompt("Ingrese su nombre:");
                 if (nombre) {
                     const nuevoTurno = {
-                        nombre: nombre,
-                        numero: generarTurno()
+                        nombre: nombre
                     };
                     turnos.push(nuevoTurno);
                     mostrarTurnos();
@@ -151,7 +147,7 @@
                 if (nombre && turno) {
                     const nuevoTurno = {
                         nombre: nombre,
-                        numero: turno
+                        numero: parseInt(turno)
                     };
                     turnos.push(nuevoTurno);
                     mostrarTurnos();
@@ -172,4 +168,3 @@
     </script>
 </body>
 </html>
-
