@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reportes</title>
+</head>
+<body>
+    <header>
+        <h1>Reportes</h1>
+    </header>
+    <section id="reporte">
+        <!-- Aquí se mostrarán los reportes generados con JavaScript -->
+    </section>
+
+    <script>
+        // JavaScript para generar reportes
+
+        // Obtener datos de localStorage
+        let reservasDeCitas = JSON.parse(localStorage.getItem('reservasDeCitas'));
+
+        if (!reservasDeCitas) {
+            reservasDeCitas = [];
+        }
+
+        // Función para generar los reportes
+        function generarReportes() {
+            const totalCitas = reservasDeCitas.length;
+            const barberos = obtenerBarberos();
+            const totalRecortes = obtenerTotalRecortes();
+            const totalPrecioDia = calcularTotalPrecioDia();
+
+            const reporteHTML = `
+                <h2>Reporte de Citas</h2>
+                <p>Total de Citas: ${totalCitas}</p>
+                <p>Total de Barberos: ${barberos.length}</p>
+                <p>Total de Recortes: ${totalRecortes}</p>
+                <p>Total de Precio por Día: ${totalPrecioDia}</p>
+            `;
+
+            document.getElementById('reporte').innerHTML = reporteHTML;
+        }
+
+        // Función para obtener la lista de barberos
+        function obtenerBarberos() {
+            const barberos = [];
+            reservasDeCitas.forEach(cita => {
+                if (!barberos.includes(cita.barbero)) {
+                    barberos.push(cita.barbero);
+                }
+            });
+            return barberos;
+        }
+
+        // Función para obtener el total de recortes
+        function obtenerTotalRecortes() {
+            return reservasDeCitas.length;
+        }
+
+        // Función para calcular el total de precio por día (por ahora simulado)
+        function calcularTotalPrecioDia() {
+            // Supongamos un precio fijo por recorte de $20
+            const precioPorRecorte = 250;
+            return reservasDeCitas.length * precioPorRecorte;
+        }
+
+        // Generar reportes al cargar la página
+        window.onload = generarReportes;
+    </script>
+</body>
+</html>
