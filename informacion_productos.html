@@ -107,6 +107,11 @@
   <h1>LISTA DE PRODUCTOS</h1>
   <table id="productTable">
 
+    <div id="productTableContainer">
+      <h4 style="text-align: left;">Productos disponibles</h4>
+      <table id="productTable"></table>
+    </div>
+
     <table>
       <thead>
         <tr>
@@ -260,6 +265,8 @@
 
   <button onclick="bookAppointment()">Ejecutar mi compra</button>
 
+  <button onclick="generateProductReport()">Generar Reporte de Productos</button>
+
   <script>
     function showCutTypeView() {
       document.getElementById('appointmentView').style.display = 'none';
@@ -281,6 +288,90 @@
       alert('La compra de sus productos de barberia se ha procesado correctamente! Retirar en barberia');
       // Puede redirigir a una página de confirmación o cualquier otra acción.
     }
+
+    function generateProductReport() {
+  const reportWindow = window.open('', '_blank');
+  reportWindow.document.write(`
+    <html>
+      <head>
+        <title>Reporte de Productos</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+          }
+          h1 {
+            margin-bottom: 20px;
+          }
+          table {
+            width: 100%;
+            border-collapse: collapse;
+          }
+          th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+          }
+          th {
+            background-color: #f2f2f2;
+          }
+          tr:nth-child(even) {
+            background-color: #f2f2f2;
+          }
+          tr:hover {
+            background-color: #ddd;
+          }
+          .logo {
+            margin-bottom: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="logo">
+          <img src="Imagenes/icononew.jpg" alt="o" width="200" height="200">
+        </div>
+        <h1>Reporte de Productos</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+  `);
+
+  let total = 0;
+
+  products.forEach(product => {
+    reportWindow.document.write(`
+      <tr>
+        <td>${product.id}</td>
+        <td>${product.name}</td>
+        <td>${product.description}</td>
+        <td>$${product.price.toFixed(2)}</td>
+      </tr>
+    `);
+    total += product.price;
+  });
+
+  reportWindow.document.write(`
+          </tbody>
+        </table>
+        <p>Total: $${total.toFixed(2)}</p>
+      </body>
+    </html>
+  `);
+
+  reportWindow.document.close();
+}
+
+loadProducts();
+loadCart();
+
   </script>
 
 <footer>
