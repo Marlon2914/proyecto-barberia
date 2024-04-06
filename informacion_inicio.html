@@ -16,117 +16,118 @@
     </body>
 
     <style>
-      :root {
-          --primary-color: #222d3a;
-          --secondary-color: #0069d9;
-          --background-color: #302a3af4;
-          --button-background: #4CAF50;
-          --button-hover-background: #3e8e41;
-      }
-  
-      * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-      }
-  
-      body {
-          font-family: Arial, sans-serif;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          background-color: var(--background-color);
-          background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(198, 148, 148, 0.5)), url("Imagenes/bg.jpg");
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
+        :root {
+            --primary-color: #222d3a;
+            --secondary-color: #0069d9;
+            --background-color: #302a3af4;
+            --button-background: #4CAF50;
+            --button-hover-background: #3e8e41;
+            --accent-color: #ff9800; 
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      }
-  
-      .header {
-          background-image: url(Imagenes/bg.jpg);
-          background-color: #333333;
-          background-position: center top;
-          background-repeat: no-repeat;
-          background-size: cover;
-          min-height: 70vh;
-          align-items: center;
-          padding: 15px 0;
-      }
-  
-      .container {
-          width: 300px;
-          background-color: #fff;
-          padding: 20px;
-          border-radius: 4px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-  
-      .title {
-          text-align: center;
-          margin-bottom: 20px;
-      }
-  
-      .form {
-          display: flex;
-          flex-direction: column;
-      }
-  
-      label {
-          font-size: 14px;
-          margin-bottom: 8px;
-      }
-  
-      input {
-          padding: 8px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          margin-bottom: 16px;
-      }
-  
-      .links {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 16px;
-          font-size: 14px;
-      }
-  
-      button {
-          padding: 8px;
-          background-color: var(--primary-color);
-          color: #fff;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-      }
-  
-      button:hover {
-          background-color: var(--secondary-color);
-      }
-  
-      .back-button {
-          display: flex;
-          align-items: center;
-          padding: 10px 20px;
-          background-color: var(--button-background);
-          color: white;
-          border: none;
-          border-radius: 5px;
-          text-decoration: none;
-          cursor: pointer;
-          margin-top: 20px;
-      }
-  
-      .back-button i {
-          margin-right: 10px;
-      }
-  
-      .back-button:hover {
-          background-color: var(--button-hover-background);
-      }
-  </style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--background-color);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(198, 148, 148, 0.5)), url("Imagenes/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .header {
+            background-image: url(Imagenes/bg.jpg);
+            background-color: #333333;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 70vh;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .container {
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: var(--button-background);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .back-button i {
+            margin-right: 10px;
+        }
+
+        .back-button:hover {
+            background-color: var(--button-hover-background);
+        }
+    </style>
   
 </head>
 <body>
@@ -154,6 +155,7 @@
                 <a href="#" id="register">¿No tienes cuenta? Regístrate</a>
                 <div id="registerForm" style="display:none;">
                     <form>
+                        <h1 class="title">¡Formulario de registro!</h1>
                         <label for="username">Username:</label><br>
                         <input type="text" id="newUsername" name="username"><br>
                         <label for="email">Email:</label><br>
