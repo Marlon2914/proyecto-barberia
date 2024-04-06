@@ -4,10 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const password = document.getElementById('password');
     const message = document.getElementById('message');
 
+    // Define múltiples usuarios con sus credenciales
+    const users = [
+        { username: 'admin', password: '123456' },
+        { username: 'joel14', password: '123456' },
+        { username: 'ranfis20', password: '123456' }
+    ];
+
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        if (username.value === 'admin' && password.value === '123456') {
+        // Verificar si las credenciales coinciden con algún usuario
+        const user = users.find(u => u.username === username.value && u.password === password.value);
+        if (user) {
             message.textContent = '¡Inicio de sesión exitoso!';
             message.style.color = 'green';
 
@@ -38,5 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const backButton = document.querySelector(".back-button");
 backButton.addEventListener("click", function() {
-  window.history.back();
+    window.history.back();
 });
