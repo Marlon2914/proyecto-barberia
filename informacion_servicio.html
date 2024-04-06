@@ -1,171 +1,198 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Beating Heart</title>
+	<title>Servicios</title>
 	<title>Barbería Compañeros Estilo & Elegancia</title>
 	<h1><img src="Imagenes/icononew.jpg" alt="o" width="100" height="100"> My Barberia</h1>
     <link rel="stylesheet" href="style.css">
 
-	<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
-
-header {
-    background-color: #307ddc;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-}
-
-nav {
-    text-align: center;
-    background-color: #555;
-    padding: 10px 0;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 5px 10px;
-}
-
-nav a:hover {
-    background-color: #777;
-}
-
-main {
-    padding: 20px;
-    background-color: #fff;
-    margin: 20px;
-}
-
-h1 {
-    color: #333;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 10px;
-}
-
-.service {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.btn-service {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-service:hover {
-    background-color: #45a049;
-}
-
-.contact-form {
-    margin-top: 50px;
-}
-
-.slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-}
-
-.mySlides {
-    display: none;
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.9);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-
-	</style>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+    
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    
+        nav {
+            background-color: #34495e;
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+    
+        nav a:hover {
+            color: #ffd700; /* Cambia a color dorado cuando se pasa el mouse sobre los enlaces */
+        }
+    
+        main {
+            padding: 20px;
+        }
+    
+        main h1 {
+            text-align: center;
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+    
+        .services-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+    
+        .services-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+            transition: background-color 0.3s ease;
+        }
+    
+        .services-list li:hover {
+            background-color: #ecf0f1; /* Cambia el color de fondo cuando se pasa el mouse sobre los elementos de la lista */
+        }
+    
+        .heart {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: red;
+            transition: transform 0.3s ease;
+        }
+    
+        .heart:hover {
+            transform: scale(1.2); /* Hace que el corazón aumente de tamaño cuando se pasa el mouse sobre él */
+        }
+    
+        .blinking-image {
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .blinking-image img {
+            animation: blink-animation 1s infinite alternate;
+        }
+    
+        @keyframes blink-animation {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+    
 </head>
 <body>
-	<div class="heart"></div>
-   </body>
-<body>
-	<header>
-		<h1>Barbería Compañeros Estilo & Elegancia</h1>
-	</header>
-	
-	<div class="blinking-image">
-		<img src="Imagenes/imgLogo.nuevo.JPG" alt="Barbershop">
-	  </div>
+    <div class="heart">&hearts;</div>
+    <header>
+        <h1>Barbería Compañeros Estilo & Elegancia</h1>
+    </header>
+    
+    <div class="blinking-image">
+        <img src="Imagenes/imgLogo.nuevo.JPG" alt="Barbershop">
+    </div>
 
-	<nav>
-		<a href="#Servicios">SERVICIOS</a>
-		<a href="#Contacto">CONTACTO</a>
-	</nav>
-	
-	<main>
-		<h1 id="Servicios">NUESTROS SERVICIOS</h1>
-		<ul>
-			<li>Cortes de pelo y estilismo.</li>
-			<li>Recorte y modelado de barba</li>
-			<li>Afeitado con navaja de afeitar</li>
-			<li>Tratamientos faciales Depilación</li>
-			<li>Masajes Capilares</li>
-		</ul>
-		<script>
-			
-		</script>
-	</main>
+    <nav>
+        <a href="#Servicios">SERVICIOS</a>
+        <a href="#Contacto">CONTACTO</a>
+        <a href="#Citas">CITAS</a>
+        <a href="#Reseñas">RESEÑAS</a>
+    </nav>
+    
+    <main>
+        <h1 id="Servicios">NUESTROS SERVICIOS</h1>
+        <ul class="services-list">
+            <li>Cortes de pelo y estilismo.</li>
+            <li>Recorte y modelado de barba</li>
+            <li>Afeitado con navaja de afeitar</li>
+            <li>Tratamientos faciales</li>
+            <li>Depilación facial</li>
+            <li>Masajes Capilares</li>
+            <li>Manicura y pedicura masculina</li>
+            <li>Coloración de barba y cabello</li>
+            <li>Tratamientos capilares personalizados</li>
+        </ul>
+    </main>
+
+    <section id="Contacto">
+        <h2>Contacto</h2>
+        <p>Puede contactarnos a través del siguiente número de teléfono: <a href="tel:+123456789">123-456-789</a></p>
+        <p>O puede visitarnos en nuestra dirección:</p>
+        <address>
+            Calle de la Barbería, 123<br>
+            Ciudad, País
+        </address>
+    </section>
+
+    <section id="Citas">
+        <h2>Solicitud de Citas</h2>
+        <p>Por favor, complete el siguiente formulario para solicitar una cita:</p>
+        <form action="/solicitud-cita" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required><br>
+            <label for="servicio">Servicio:</label>
+            <select id="servicio" name="servicio" required>
+                <option value="">Seleccione un servicio</option>
+                <option value="Corte de pelo">Corte de pelo</option>
+                <option value="Afeitado">Afeitado</option>
+                <option value="Depilación">Depilación</option>
+                <!-- Agrega más opciones según los servicios ofrecidos -->
+            </select><br>
+            <label for="fecha">Fecha preferida:</label>
+            <input type="date" id="fecha" name="fecha" required><br>
+            <input type="submit" value="Solicitar Cita">
+        </form>
+    </section>
+
+<section id="Reseñas">
+    <h2>Reseñas de Clientes</h2>
+    <ul id="listaReseñas">
+        <li>"Excelente servicio, definitivamente regresaré". - Cliente Satisfecho</li>
+        <li>"El ambiente es muy agradable y los barberos son muy profesionales". - Otro Cliente Feliz</li>
+        <!-- Las nuevas reseñas se agregarán aquí dinámicamente -->
+    </ul>
+    <textarea id="nuevaReseña" placeholder="Agrega tu reseña aquí"></textarea>
+    <button onclick="agregarReseña()">Agregar Reseña</button>
+</section>
+<div>
+
+</div>
+<script>
+    function agregarReseña() {
+    var nuevaReseña = document.getElementById("nuevaReseña").value;
+    if (nuevaReseña.trim() !== "") {
+        var listaReseñas = document.getElementById("listaReseñas");
+        var nuevaReseñaElemento = document.createElement("li");
+        nuevaReseñaElemento.textContent = '"' + nuevaReseña + '"';
+        listaReseñas.appendChild(nuevaReseñaElemento);
+        document.getElementById("nuevaReseña").value = ""; // Limpiar el área de texto después de agregar la reseña
+    } else {
+        alert("Por favor ingresa una reseña válida.");
+    }
+}
+</script>
+</body>
 
 	<footer>
         <p>&copy; Derechos Reservados: Barbería, Compañeros Estilo & Elegancia.
