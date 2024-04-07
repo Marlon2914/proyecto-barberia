@@ -13,8 +13,8 @@
 <body>
 
     <header class="header">
-        <div class="Menu container">
-            <div class="header-content">
+        <div class="container">
+            <div class="Menu">
                 <a href="index.html" class="logo">
                     <img src="Imagenes/icononew.jpg" alt="o" width="100" height="100">
                     My Barberia
@@ -35,18 +35,20 @@
                     <li><a href="reserva_ahora.html"> Reserva ahora <i class="fas fa-calendar-plus"></i></a></li>
 
                     
-                    
+
                 </ul>
             </nav>
         </div>
+    </div>
+</div>
     </header>
 
     <script>
-        const menu = document.querySelector('.Menu');
-        const menuIcon = document.querySelector('.menu-icono');
+        const toggle = document.getElementById('toggle');
+        const menu = document.getElementById('menu');
 
-        menuIcon.addEventListener('click', () => {
-            menu.classList.toggle('active');
+        toggle.addEventListener('click', function() {
+            menu.classList.toggle('active'); // Toggle the 'active' class on the menu
         });
     </script>
 

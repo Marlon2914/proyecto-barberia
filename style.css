@@ -30,7 +30,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .logo {
@@ -38,15 +37,10 @@ body {
     text-decoration: none;
     font-size: 24px;
     color: #CF2D3A;
- 
 }
 
 .logo img {
     margin-right: 10px;
-}
-
-.menu-icono {
-    cursor: pointer;
 }
 
 .navbar ul {
@@ -69,29 +63,46 @@ body {
     color: #ccc;
 }
 
-.active {
-    display: block;
-}
-
-@media screen and (max-width: 76){}
-
-#menu {
-    display: none;
-}
-
-.active + ul {
-    display: block;
-}
-
-
 .menu-icono {
+    cursor: pointer;
     width: 25px;
+    display: none; /* Ocultar el ícono del menú por defecto */
 }
 
 .menu label {
     cursor: pointer;
     display: none;
 }
+
+/* Estilos para dispositivos con un ancho máximo de 768px */
+@media screen and (max-width: 768px) {
+    .menu-icono {
+        display: block; /* Mostrar el ícono del menú cuando la pantalla es lo suficientemente estrecha */
+    }
+
+    .navbar ul {
+        display: none; /* Ocultar la lista de navegación por defecto en pantallas estrechas */
+        flex-direction: column; /* Cambiar la dirección del flexbox para apilar los elementos verticalmente */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333; /* Cambiar el color de fondo del menú desplegable */
+        width: 100%; /* Ajustar el ancho del menú desplegable al ancho completo de la pantalla */
+    }
+
+    .navbar ul.active {
+        display: flex; /* Mostrar la lista de navegación cuando la clase 'active' está presente */
+    }
+
+    .navbar li {
+        margin: 10px 0; /* Añadir un espacio entre cada elemento del menú */
+    }
+
+    .menu label {
+        display: block; /* Mostrar la etiqueta de la hamburguesa */
+    }
+}
+
 
 .header-txt {
     text-align: center;
