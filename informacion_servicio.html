@@ -135,63 +135,187 @@
 
     <section id="Contacto">
         <h2>Contacto</h2>
-        <p>Puede contactarnos a través del siguiente número de teléfono: <a href="tel:+123456789">123-456-789</a></p>
+        <p>Puede contactarnos a través del siguiente número de teléfono: <a href="tel:829-727-6739">809-441-8735</a></p>
         <p>O puede visitarnos en nuestra dirección:</p>
         <address>
-            Calle de la Barbería, 123<br>
-            Ciudad, País
+            Calle de la Barbería, C. TRINA MOYA SECTOR: LOS MINAS<br>
+            Ciudad, SANTO DOMINGO ESTE
         </address>
     </section>
 
-    <section id="Citas">
-        <h2>Solicitud de Citas</h2>
-        <p>Por favor, complete el siguiente formulario para solicitar una cita:</p>
-        <form action="/solicitud-cita" method="POST">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required><br>
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" required><br>
-            <label for="servicio">Servicio:</label>
-            <select id="servicio" name="servicio" required>
-                <option value="">Seleccione un servicio</option>
-                <option value="Corte de pelo">Corte de pelo</option>
-                <option value="Afeitado">Afeitado</option>
-                <option value="Depilación">Depilación</option>
-                <!-- Agrega más opciones según los servicios ofrecidos -->
-            </select><br>
-            <label for="fecha">Fecha preferida:</label>
-            <input type="date" id="fecha" name="fecha" required><br>
-            <input type="submit" value="Solicitar Cita">
-        </form>
+    <footer>
+
+        <div class="footer-bg">
+            <h2 id="appointments-heading"><i class="fas fa-calendar-alt"></i> Reserva de citas</h2>
+
+            <div class="container">
+                <h1> D' Compañeros Estilo & Elegancia</h1>
+                <div id="appointmentView" class="form-group">
+                        <label for="nombre">Nombre:</label><br>
+                        <input type="text" id="nombre" name="nombre" required><br><br>
+                
+                        <label for="telefono">Teléfono:</label><br>
+                        <input type="tel" id="telefono" name="telefono" required><br><br>
+                
+                        <label for="hora">Hora de la cita:</label><br>
+                        <input type="time" id="hora" name="hora" required><br><br>
+
+                    <label for="appointmentDate">Seleccione la fecha de la cita:</label>
+                    <input type="date" id="appointmentDate">
+                    <button onclick="showCutTypeView()">Siguiente</button>
+                </div>
+                <div id="cutTypeView" class="form-group" style="display: none;">
+                    <label for="cutType">Seleccionar tipo de corte:</label>
+                    <img src="Imagenes/Tipo de cortes.JPG" alt="Regular Cut" onclick="selectCutType('Corte', 20)">
+                    <select id="cutType">
+                        <option value="slicked back - peinado hacia atrás">Slicked back - Peinado hacia atrás</option>
+                        <option value="jelly roll - rollo de gelatina">jelly roll - Rollo de gelatina</option>
+                        <option value="comb over - peinar">Comb over - Peinar</option>
+                        <option value="blurry fade - desvanecimiento borroso">Blurry fade - Desvanecimiento borroso</option>
+                        <option value="4AM FADE - DESTEÑIR">4AM FADE - DESTEÑIR</option>
+                        <option value="high pomp - alta pompa">High pomp - alta pompa</option>
+                        <option value="Messy pomp - pompa desordenada">pompa desordenada</option>
+                        <option value="peinado hacia atrás">Peinado hacia atrás</option>
+                        <option value="Corte de pelo degradado">Corte de pelo degradado</option>
+                        <option value="corte texturizado">Corte texturizado</option>
+                    </select>
+                    <button onclick="showBarberView()">Siguiente</button>
+                </div>
+                <div id="barberView" class="form-group" style="display: none;">
+                    <label for="barber">Seleccionar Barbero:</label>
+                    <div style="display: flex; flex-direction: center row;">
+                        <div style="margin-right: 20px;">
+                            <img src="Imagenes/b11.jpeg" alt="Regular Cut" onclick="selectCutType('Barbero', 20)" width="200px">
+                            <p>Roberh Franco</p>
+                        </div>
+                        <div style="margin-right: 20px;">
+                            <img src="Imagenes/Alex Medina.JPG" alt="Regular Cut" onclick="selectCutType('Barbero', 20)" width="200px">
+                            <p>Alex Medina</p>
+                        </div>
+                        <div>
+                            <img src="Imagenes/b33.jpeg" alt="Regular Cut" onclick="selectCutType('Barbero', 20)" width="200px">
+                            <p>Gil Matos</p>
+                        </div>
+                    </div>
+                    <select id="barber">
+                        <option value="roberh Franco">Roberh Franco</option>
+                        <option value="alex Medina">Alex Medina</option>
+                        <option value="gil Matos">Gil Matos</option>
+                        <option value="alberth Polanco">Alberth Polanco (Niños)</option>
+                        <option value="jonathan Abreu">Jonathan Abreu (Niños)</option>
+                    </select>
+                    <button onclick="showTrimTypeView()">Siguiente</button>
+                </div>
+                <div id="trimTypeView" class="form-group" style="display: none;">
+                    <label for="trimType">Seleccionar tipo de recorte:</label>
+                    <img src="Imagenes/tipo de recortebb.JPG" alt="Recorte sencillo" onclick="selectTrimType('Recorte sencillo', 15)">
+                    <select id="trimType">
+                        <option value="recorte sencillo">Recorte sencillo</option>
+                        <option value="recorte regular">Recorte regular</option>
+                        <option value="recorte intermedio">Recorte intermedio</option>
+                        <option value="recorte Experto">Recorte Experto</option>
+                        <option value="recorte Experto">Corte en capas</option>
+                    </select>
+                    <button onclick="bookAppointment()">Guardar y Enviar tu reserva</button>
+                </div>
+
+        <script>
+            function showCutTypeView() {
+                document.getElementById('appointmentView').style.display = 'none';
+                document.getElementById('cutTypeView').style.display = 'block';
+            }
+
+            function showBarberView() {
+                document.getElementById('cutTypeView').style.display = 'none';
+                document.getElementById('barberView').style.display = 'block';
+            }
+
+            function showTrimTypeView() {
+                document.getElementById('barberView').style.display = 'none';
+                document.getElementById('trimTypeView').style.display = 'block';
+            }
+
+            function selectCutType(cutType, price) {
+                // Aquí podrías almacenar la selección del cliente, por ejemplo, en variables JavaScript
+
+                var selectedCutType = "";
+                var selectedPrice = 0;
+                alert('Seleccionaste ' + cutType + ' por $' + price);
+            }
+
+            function selectBarber(barber) {
+                // Aquí podrías almacenar la selección del cliente, por ejemplo, en variables JavaScript
+                alert('Seleccionaste al barbero ' + barber);
+            }
+
+            function selectTrimType(trimType, price) {
+                // Aquí podrías almacenar la selección del cliente, por ejemplo, en variables JavaScript
+                alert('Seleccionaste ' + trimType + ' por $' + price);
+            }
+
+            function bookAppointment() {
+                // Aquí podrías enviar la reserva al servidor o realizar cualquier otra acción necesaria
+                alert('Cita reservada con éxito!');
+                // Puedes redirigir a una página de confirmación u otra acción
+            }
+        </script>
+
+            </div>
+            <div class="footer-txt">
+                <p>
+                    Nuestros expertos barberos se especializan en cortes
+                    que resaltan la masculinidad y la elegancia.
+                </p>
+
+            </div>
+
+    </footer>
+
+    <section id="Reseñas">
+        <h2>Reseñas de Clientes</h2>
+        <ul id="listaReseñas">
+            <li>"Excelente servicio, definitivamente regresaré". - Cliente Satisfecho</li>
+            <li>"El ambiente es muy agradable y los barberos son muy profesionales". - Otro Cliente Feliz</li>
+            <!-- Las nuevas reseñas se agregarán aquí dinámicamente -->
+        </ul>
+        <textarea id="nuevaReseña" placeholder="Agrega tu reseña aquí"></textarea>
+        <button onclick="agregarReseña()">Agregar Reseña</button>
     </section>
-
-<section id="Reseñas">
-    <h2>Reseñas de Clientes</h2>
-    <ul id="listaReseñas">
-        <li>"Excelente servicio, definitivamente regresaré". - Cliente Satisfecho</li>
-        <li>"El ambiente es muy agradable y los barberos son muy profesionales". - Otro Cliente Feliz</li>
-        <!-- Las nuevas reseñas se agregarán aquí dinámicamente -->
-    </ul>
-    <textarea id="nuevaReseña" placeholder="Agrega tu reseña aquí"></textarea>
-    <button onclick="agregarReseña()">Agregar Reseña</button>
-</section>
-<div>
-
-</div>
-<script>
-    function agregarReseña() {
-    var nuevaReseña = document.getElementById("nuevaReseña").value;
-    if (nuevaReseña.trim() !== "") {
-        var listaReseñas = document.getElementById("listaReseñas");
-        var nuevaReseñaElemento = document.createElement("li");
-        nuevaReseñaElemento.textContent = '"' + nuevaReseña + '"';
-        listaReseñas.appendChild(nuevaReseñaElemento);
-        document.getElementById("nuevaReseña").value = ""; // Limpiar el área de texto después de agregar la reseña
-    } else {
-        alert("Por favor ingresa una reseña válida.");
-    }
-}
-</script>
+    <div></div>
+    <script>
+        // Al cargar la página, intenta obtener las reseñas guardadas en localStorage y mostrarlas
+        document.addEventListener("DOMContentLoaded", function() {
+            var reseñasGuardadas = JSON.parse(localStorage.getItem("reseñas"));
+            if (reseñasGuardadas) {
+                var listaReseñas = document.getElementById("listaReseñas");
+                reseñasGuardadas.forEach(function(reseña) {
+                    var nuevaReseñaElemento = document.createElement("li");
+                    nuevaReseñaElemento.textContent = reseña;
+                    listaReseñas.appendChild(nuevaReseñaElemento);
+                });
+            }
+        });
+    
+        function agregarReseña() {
+            var nuevaReseña = document.getElementById("nuevaReseña").value;
+            if (nuevaReseña.trim() !== "") {
+                var listaReseñas = document.getElementById("listaReseñas");
+                var nuevaReseñaElemento = document.createElement("li");
+                nuevaReseñaElemento.textContent = '"' + nuevaReseña + '"';
+                listaReseñas.appendChild(nuevaReseñaElemento);
+                
+                // Guardar la nueva reseña en localStorage
+                var reseñasGuardadas = JSON.parse(localStorage.getItem("reseñas")) || [];
+                reseñasGuardadas.push(nuevaReseña);
+                localStorage.setItem("reseñas", JSON.stringify(reseñasGuardadas));
+    
+                document.getElementById("nuevaReseña").value = ""; // Limpiar el área de texto después de agregar la reseña
+            } else {
+                alert("Por favor ingresa una reseña válida.");
+            }
+        }
+    </script>
+    
 </body>
 
 	<footer>
