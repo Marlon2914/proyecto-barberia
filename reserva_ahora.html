@@ -85,7 +85,7 @@
         </div>
         <div class="form-group">
             <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono">
+            <input type="tel" id="telefono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Formato de teléfono: ###-###-####">
         </div>
         <div class="form-group">
             <label for="fecha">Fecha:</label>
@@ -140,6 +140,13 @@ function guardarCita() {
     const barbero = document.getElementById('barbero').value;
 
     if (nombre && telefono && fecha && hora && tipoCorte && barbero) {
+        // Verificar si la fecha y hora ya están reservadas
+        const citaExistente = reservasDeCitas.find(cita => cita.fecha === fecha && cita.hora === hora);
+        if (citaExistente) {
+            alert('La fecha y hora seleccionadas ya están reservadas.');
+            return;
+        }
+
         reservasDeCitas.push({ nombre, telefono, fecha, hora, tipoCorte, barbero });
         localStorage.setItem('reservasDeCitas', JSON.stringify(reservasDeCitas));
         alert('Cita guardada correctamente.');
@@ -160,5 +167,7 @@ function cancelarCita() {
     limpiarFormulario();
 }
 </script>
+
+
 </body>
 </html>
