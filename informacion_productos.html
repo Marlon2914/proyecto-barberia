@@ -283,9 +283,16 @@
       document.getElementById('trimTypeView').style.display = 'block';
     }
 
+    function clearAll() {
+    cart.length = 0; // Vacía el arreglo del carrito
+    loadCart(); // Actualiza la vista del carrito
+    updateTotal(); // Actualiza el total
+    }
+
     function bookAppointment() {
       // La lógica para reservar la cita va aquí.
       alert('La compra de sus productos de barberia se ha procesado correctamente! Retirar en barberia');
+      clearAll(); // Limpia todo después de procesar la compra
       // Puede redirigir a una página de confirmación o cualquier otra acción.
     }
 
