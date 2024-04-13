@@ -42,7 +42,7 @@
 <body>
     <header>
         <img src="Imagenes/icononew.jpg" alt="o" width="250" height="250">
-        <h1>Reportes</h1>
+        <h1>Reportes del analisis</h1>
     </header>
     <section id="reporte">
         <!-- Aquí se mostrarán los reportes generados con JavaScript -->
@@ -64,6 +64,13 @@
             const barberos = obtenerBarberos();
             const totalRecortes = obtenerTotalRecortes();
             const totalPrecioDia = calcularTotalPrecioDia();
+            const tiempoPromedioServicio = calcularTiempoPromedioServicio();
+            const ingresosGenerados = calcularIngresosGenerados();
+            const clientesAtendidos = obtenerClientesAtendidos();
+            const cancelacionesAusencias = obtenerCancelacionesAusencias();
+            const inventarioProductos = obtenerInventarioProductos();
+            const rendimientoPersonal = calcularRendimientoPersonal();
+            const tendenciasAnalisis = analizarTendencias();
 
             const reporteHTML = `
                 <h2>Reporte de Citas</h2>
@@ -71,6 +78,17 @@
                 <p>Total de Barberos: ${barberos.length}</p>
                 <p>Total de Recortes: ${totalRecortes}</p>
                 <p>Total de Precio por Día: ${totalPrecioDia}</p>
+                <h2>Resumen de Citas</h2>
+                <p>Tiempo Promedio de Servicio por Cita: ${tiempoPromedioServicio} minutos</p>
+                <p>Ingresos Generados: ${ingresosGenerados}</p>
+                <p>Clientes Atendidos: ${clientesAtendidos}</p>
+                <p>Cancelaciones y Ausencias: ${cancelacionesAusencias}</p>
+                <h2>Inventario de Productos</h2>
+                <p>${inventarioProductos}</p>
+                <h2>Rendimiento del Personal</h2>
+                <p>${rendimientoPersonal}</p>
+                <h2>Tendencias y Análisis</h2>
+                <p>${tendenciasAnalisis}</p>
             `;
 
             document.getElementById('reporte').innerHTML = reporteHTML;
@@ -97,6 +115,144 @@
             // Supongamos un precio fijo por recorte de $20
             const precioPorRecorte = 250;
             return reservasDeCitas.length * precioPorRecorte;
+        }
+
+       // Función para simular el tiempo promedio de servicio por cita
+        function calcularTiempoPromedioServicio() {
+        let totalTime = 0;
+        const MIN_TIEMPO_SERVICIO = 20; // Tiempo mínimo en minutos
+        const MAX_TIEMPO_SERVICIO = 40; // Tiempo máximo en minutos
+
+        reservasDeCitas.forEach(cita => {
+        // Generar un tiempo aleatorio dentro del rango para cada cita
+        const tiempoServicio = Math.floor(Math.random() * (MAX_TIEMPO_SERVICIO - MIN_TIEMPO_SERVICIO + 1)) + MIN_TIEMPO_SERVICIO;
+        totalTime += tiempoServicio;
+        });
+
+        // Calcular el tiempo promedio
+        const tiempoPromedio = totalTime / reservasDeCitas.length;
+        return tiempoPromedio.toFixed(2); // Redondear a dos decimales
+        }
+
+
+        // Función para calcular los ingresos generados
+        function calcularIngresosGenerados() {
+        let totalIngresos = 0;
+        reservasDeCitas.forEach(cita => {
+        totalIngresos += cita.precio; // Suponiendo que cada cita tiene un precio asociado
+        });
+        return totalIngresos;
+        }
+
+        // Función para obtener el número de clientes atendidos
+        function obtenerClientesAtendidos() {
+        return reservasDeCitas.reduce((total, cita) => total + (cita.asistencia ? 1 : 0), 0);
+        }
+
+        // Función para obtener el número de cancelaciones y ausencias
+        function obtenerCancelacionesAusencias() {
+        let cancelacionesAusencias = 0;
+        reservasDeCitas.forEach(cita => {
+        if (!cita.asistencia) {
+            cancelacionesAusencias++;
+        }
+        });
+        return cancelacionesAusencias;
+        }
+
+        // Función para obtener el inventario de productos
+        function obtenerInventarioProductos() {
+        // Supongamos que tenemos una lista de productos y su cantidad en inventario
+        const inventario = {
+        "Gel de Afeitar": 1,
+        "Lociones para Después del Afeitado": 1,
+        "Polvos Perfumado": 2,
+        "Gel Fijador para Peinar": 1,
+        "Toallitas Faciales": 3,
+        "Peines de Barbero": 5,
+        "Desinfectantes y Limpiadores": 3,
+        "Cepillos": 7,
+        // Agrega más productos según sea necesario
+        };
+        let inventarioHTML = "<ul>";
+        for (const producto in inventario) {
+        inventarioHTML += `<li>${producto}: ${inventario[producto]}</li>`;
+        }
+        inventarioHTML += "</ul>";
+        return inventarioHTML;
+        }
+
+        // Función para calcular el rendimiento del personal
+        function calcularRendimientoPersonal() {
+        // Aquí puedes calcular el rendimiento del personal según tus métricas específicas
+        // Por ejemplo, puedes calcular el número promedio de citas atendidas por barbero por día
+        const citasPorBarbero = {};
+        reservasDeCitas.forEach(cita => {
+        if (!citasPorBarbero[cita.barbero]) {
+            citasPorBarbero[cita.barbero] = 1;
+        } else {
+            citasPorBarbero[cita.barbero]++;
+        }
+        });
+
+        let rendimientoHTML = "<ul>";
+        for (const barbero in citasPorBarbero) {
+        rendimientoHTML += `<li>${barbero}: ${citasPorBarbero[barbero]} citas</li>`;
+        }
+        rendimientoHTML += "</ul>";
+        return rendimientoHTML;
+        }
+
+        // Función para analizar tendencias y análisis
+        function analizarTendencias() {
+        // Obtener fechas de las citas
+        const fechasCitas = reservasDeCitas.map(cita => new Date(cita.fecha));
+
+        // Analizar la frecuencia de citas por día de la semana
+        const citasPorDiaSemana = [0, 0, 0, 0, 0, 0, 0]; // Inicializar un array para contar las citas por día de la semana (de 0 a 6, siendo 0 domingo)
+        fechasCitas.forEach(fecha => {
+        const diaSemana = fecha.getDay(); // Obtener el día de la semana (0 para domingo, 1 para lunes, etc.)
+        citasPorDiaSemana[diaSemana]++;
+        });
+
+        // Analizar la frecuencia de citas por mes
+        const citasPorMes = {};
+        fechasCitas.forEach(fecha => {
+        const mes = fecha.getMonth(); // Obtener el mes (de 0 a 11, siendo 0 enero, 1 febrero, etc.)
+        if (!citasPorMes[mes]) {
+            citasPorMes[mes] = 0;
+        }
+        citasPorMes[mes]++;
+        });
+
+        // Analizar las preferencias de servicios más populares
+        const serviciosPopulares = {};
+        reservasDeCitas.forEach(cita => {
+        if (!serviciosPopulares[cita.servicio]) {
+            serviciosPopulares[cita.servicio] = 0;
+        }
+        serviciosPopulares[cita.servicio]++;
+        });
+
+        // Ordenar los servicios populares de mayor a menor frecuencia
+        const serviciosOrdenados = Object.keys(serviciosPopulares).sort((a, b) => serviciosPopulares[b] - serviciosPopulares[a]);
+
+        // Construir el análisis
+        let analisis = "Análisis de tendencias y patrones en las citas:\n";
+        analisis += "- Frecuencia de citas por día de la semana:\n";
+        citasPorDiaSemana.forEach((cantidad, indice) => {
+        analisis += `   Día ${indice}: ${cantidad} citas\n`;
+        });
+        analisis += "- Frecuencia de citas por mes:\n";
+        for (const mes in citasPorMes) {
+        analisis += `   Mes ${mes}: ${citasPorMes[mes]} citas\n`;
+        }
+        analisis += "- Preferencias de servicios más populares:\n";
+        serviciosOrdenados.forEach(servicio => {
+        analisis += `   ${servicio}: ${serviciosPopulares[servicio]} citas\n`;
+        });
+
+        return analisis;
         }
 
         // Generar reportes al cargar la página
