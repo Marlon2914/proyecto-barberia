@@ -295,7 +295,7 @@
                 </div>
                 <div id="cutTypeView" class="form-group" style="display: none;">
                     <label for="cutType">Seleccionar tipo de corte:</label>
-                    <img src="Imagenes/Tipo de cortes.JPG" alt="Regular Cut" onclick="selectCutType('Corte', 20)">
+                    <img src="Imagenes/Tipo de cortes.JPG" alt="Regular Cut" onclick="selectCutType('Este corte', 350)">
                     <select id="cutType">
                         <option value="slicked back - peinado hacia atrás">Slicked back - Peinado hacia atrás</option>
                         <option value="jelly roll - rollo de gelatina">jelly roll - Rollo de gelatina</option>
@@ -314,15 +314,15 @@
                     <label for="barber">Seleccionar Barbero:</label>
                     <div style="display: flex; flex-direction: center row;">
                         <div style="margin-right: 20px;">
-                            <img src="Imagenes/b11.jpeg" alt="Regular Cut" onclick="selectCutType('Barbero', 20)" width="200px">
+                            <img src="Imagenes/b11.jpeg" alt="Regular Cut" onclick="selectCutType('Al barbero Roberh Franco', 200)" width="200px">
                             <p>Roberh Franco</p>
                         </div>
                         <div style="margin-right: 20px;">
-                            <img src="Imagenes/Alex Medina.JPG" alt="Regular Cut" onclick="selectCutType('Barbero', 20)" width="200px">
+                            <img src="Imagenes/Alex Medina.JPG" alt="Regular Cut" onclick="selectCutType('Al barbero Alex Medina', 200)" width="200px">
                             <p>Alex Medina</p>
                         </div>
                         <div>
-                            <img src="Imagenes/b33.jpeg" alt="Regular Cut" onclick="selectCutType('Barbero', 20)" width="200px">
+                            <img src="Imagenes/b33.jpeg" alt="Regular Cut" onclick="selectCutType('Al barbero Gil Matos', 200)" width="200px">
                             <p>Gil Matos</p>
                         </div>
                     </div>
@@ -337,7 +337,7 @@
                 </div>
                 <div id="trimTypeView" class="form-group" style="display: none;">
                     <label for="trimType">Seleccionar tipo de recorte:</label>
-                    <img src="Imagenes/tipo de recortebb.JPG" alt="Recorte sencillo" onclick="selectTrimType('Recorte sencillo', 15)">
+                    <img src="Imagenes/tipo de recortebb.JPG" alt="Recorte sencillo" onclick="selectTrimType('Recorte sencillo', 200)">
                     <select id="trimType">
                         <option value="recorte sencillo">Recorte sencillo</option>
                         <option value="recorte regular">Recorte regular</option>
@@ -383,10 +383,12 @@
             }
 
             function bookAppointment() {
-                // Aquí podrías enviar la reserva al servidor o realizar cualquier otra acción necesaria
-                alert('Cita reservada con éxito!');
-                // Puedes redirigir a una página de confirmación u otra acción
+            // Aquí podrías enviar la reserva al servidor o realizar cualquier otra acción necesaria
+            alert('Cita reservada con éxito!');
+            // Redirigir a la página lista.html
+            window.location.href = 'lista.html';
             }
+
         </script>
 
             </div>
