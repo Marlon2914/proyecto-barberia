@@ -48,6 +48,18 @@
         <!-- Aquí se mostrarán los reportes generados con JavaScript -->
     </section>
 
+    <!-- Agregar el botón para generar el contenido del reporte -->
+    <button onclick="generarReporteCompleto()">Generar Reporte Completo</button>
+
+    <!-- Agregar el select para elegir la función del reporte -->
+    <select id="selectFuncion" onchange="generarReportes()">
+    <option value="reporteCitas">Reporte de Citas</option>
+    <option value="resumenCitas">Resumen de Citas</option>
+    <option value="inventarioProductos">Inventario de Productos</option>
+    <option value="rendimientoPersonal">Rendimiento del Personal</option>
+    <option value="tendenciasAnalisis">Tendencias y Análisis</option>
+    </select>
+
     <script>
         // JavaScript para generar reportes
 
@@ -58,41 +70,110 @@
             reservasDeCitas = [];
         }
 
-        // Función para generar los reportes
-        function generarReportes() {
-            const totalCitas = reservasDeCitas.length;
-            const barberos = obtenerBarberos();
-            const totalRecortes = obtenerTotalRecortes();
-            const totalPrecioDia = calcularTotalPrecioDia();
-            const tiempoPromedioServicio = calcularTiempoPromedioServicio();
-            const ingresosGenerados = calcularIngresosGenerados();
-            const clientesAtendidos = obtenerClientesAtendidos();
-            const cancelacionesAusencias = obtenerCancelacionesAusencias();
-            const inventarioProductos = obtenerInventarioProductos();
-            const rendimientoPersonal = calcularRendimientoPersonal();
-            const tendenciasAnalisis = analizarTendencias();
-
-            const reporteHTML = `
-                <h2>Reporte de Citas</h2>
-                <p>Total de Citas: ${totalCitas}</p>
-                <p>Total de Barberos: ${barberos.length}</p>
-                <p>Total de Recortes: ${totalRecortes}</p>
-                <p>Total de Precio por Día: ${totalPrecioDia}</p>
-                <h2>Resumen de Citas</h2>
-                <p>Tiempo Promedio de Servicio por Cita: ${tiempoPromedioServicio} minutos</p>
-                <p>Ingresos Generados: ${ingresosGenerados}</p>
-                <p>Clientes Atendidos: ${clientesAtendidos}</p>
-                <p>Cancelaciones y Ausencias: ${cancelacionesAusencias}</p>
-                <h2>Inventario de Productos</h2>
-                <p>${inventarioProductos}</p>
-                <h2>Rendimiento del Personal</h2>
-                <p>${rendimientoPersonal}</p>
-                <h2>Tendencias y Análisis</h2>
-                <p>${tendenciasAnalisis}</p>
+            // Función para generar todo el contenido del reporte al hacer clic en el botón
+            function generarReporteCompleto() {
+            const reporteCompletoHTML = `
+            ${generarReporteCitas()}
+            ${generarResumenCitas()}
+            ${generarInventarioProductos()}
+            ${generarRendimientoPersonal()}
+            ${generarTendenciasAnalisis()}
             `;
 
-            document.getElementById('reporte').innerHTML = reporteHTML;
+            document.getElementById('reporte').innerHTML = reporteCompletoHTML;
+            }
+
+        // Función para generar los reportes según la opción seleccionada
+    function generarReportes() {
+        const seleccion = document.getElementById('selectFuncion').value;
+
+        let reporteHTML = '';
+
+        switch (seleccion) {
+            case 'reporteCitas':
+                reporteHTML = generarReporteCitas();
+                break;
+            case 'resumenCitas':
+                reporteHTML = generarResumenCitas();
+                break;
+            case 'inventarioProductos':
+                reporteHTML = generarInventarioProductos();
+                break;
+            case 'rendimientoPersonal':
+                reporteHTML = generarRendimientoPersonal();
+                break;
+            case 'tendenciasAnalisis':
+                reporteHTML = generarTendenciasAnalisis();
+                break;
+            default:
+                reporteHTML = 'Seleccione una opción válida.';
         }
+
+        document.getElementById('reporte').innerHTML = reporteHTML;
+    }
+
+    // Define aquí las funciones para generar cada tipo de reporte según tus necesidades
+
+    function generarReporteCitas() {
+        const totalCitas = reservasDeCitas.length;
+        const barberos = obtenerBarberos();
+        const totalRecortes = obtenerTotalRecortes();
+        const totalPrecioDia = calcularTotalPrecioDia();
+        const reporteHTML = `
+            <h2>Reporte de Citas</h2>
+            <p>Total de Citas: ${totalCitas}</p>
+            <p>Total de Barberos: ${barberos.length}</p>
+            <p>Total de Recortes: ${totalRecortes}</p>
+            <p>Total de Precio por Día: ${totalPrecioDia}</p>
+        `;
+        return reporteHTML;
+    }
+
+        function generarResumenCitas() {
+        const tiempoPromedioServicio = calcularTiempoPromedioServicio();
+        const ingresosGenerados = calcularIngresosGenerados();
+        const clientesAtendidos = obtenerClientesAtendidos();
+        const cancelacionesAusencias = obtenerCancelacionesAusencias();
+
+        const reporteHTML = `
+        <h2>Resumen de Citas</h2>
+        <p>Tiempo Promedio de Servicio por Cita: ${tiempoPromedioServicio} minutos</p>
+        <p>Ingresos Generados: ${ingresosGenerados}</p>
+        <p>Clientes Atendidos: ${clientesAtendidos}</p>
+        <p>Cancelaciones y Ausencias: ${cancelacionesAusencias}</p>
+        `;
+        return reporteHTML;
+        }
+
+        function generarInventarioProductos() {
+        const inventarioHTML = obtenerInventarioProductos();
+
+        const reporteHTML = `
+        <h2>Inventario de Productos</h2>
+        ${inventarioHTML}
+        `;
+        return reporteHTML;
+        }
+
+        function generarRendimientoPersonal() {
+        const rendimientoPersonalHTML = calcularRendimientoPersonal();
+
+        const reporteHTML = `
+        <h2>Rendimiento del Personal</h2>
+        ${rendimientoPersonalHTML}
+        `;
+        return reporteHTML;
+        }
+
+        function generarTendenciasAnalisis() {
+        const analisisHTML = analizarTendencias();
+
+        const reporteHTML = `
+        <h2>Tendencias y Análisis</h2>
+        ${analisisHTML}
+        `;
+        return reporteHTML;
+    }
 
         // Función para obtener la lista de barberos
         function obtenerBarberos() {

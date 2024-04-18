@@ -132,7 +132,47 @@ if (citasGuardadas) {
     reservasDeCitas = JSON.parse(citasGuardadas);
 }
 
-function guardarCita() {
+function mostrarHorasDisponibles() {
+        // Obtenemos la fecha y el barbero seleccionados
+        var fecha = document.getElementById("fecha").value;
+        var barbero = document.getElementById("barbero").value;
+        // Aquí deberías hacer una llamada a un servidor para obtener las horas disponibles para la fecha y el barbero seleccionados
+        // Por simplicidad, supondremos que las horas disponibles están predefinidas
+        var horasDisponibles = obtenerHorasDisponibles(fecha, barbero);
+
+        // Mostramos las horas disponibles en el select de horas
+        var selectHoras = document.getElementById("hora");
+        selectHoras.innerHTML = ""; // Limpiamos las opciones anteriores
+        for (var i = 0; i < horasDisponibles.length; i++) {
+            var option = document.createElement("option");
+            option.text = horasDisponibles[i];
+            selectHoras.add(option);
+        }
+
+        // Mostramos el div de horas disponibles si hay horas disponibles, o lo ocultamos si no las hay
+        var divHoras = document.getElementById("horas-disponibles");
+        if (horasDisponibles.length > 0) {
+            divHoras.style.display = "block";
+        } else {
+            divHoras.style.display = "none";
+        }
+    }
+
+    function obtenerHorasDisponibles(fecha, barbero) {
+        // Aquí deberías hacer una llamada al servidor para obtener las horas disponibles para la fecha y el barbero seleccionados
+        // En esta implementación de ejemplo, simplemente devolvemos un conjunto fijo de horas disponibles
+        if (fecha === "2024-04-18" && barbero === "juan") {
+            return ["10:00", "11:00", "12:00"];
+        } else if (fecha === "2024-04-18" && barbero === "pedro") {
+            return ["13:00", "14:00", "15:00"];
+        } else if (fecha === "2024-04-18" && barbero === "luis") {
+            return ["16:00", "17:00", "18:00"];
+        } else {
+            return []; // No hay horas disponibles para la fecha y el barbero seleccionados
+        }
+    }
+
+    function guardarCita() {
     const nombre = document.getElementById('nombre').value;
     const telefono = document.getElementById('telefono').value;
     const fecha = document.getElementById('fecha').value;
