@@ -2,24 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="x-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbería</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto Slab', serif;
             margin: 0;
             padding: 0;
-            background-image: url("Imagenes/lista.JPG");
+            background-image: url("Imagenes/bg.JPG");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
         .container {
             max-width: 800px;
-            margin: 20px auto;
+            margin: 50px auto;
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+        margin-bottom: 25px;
         }
 
         button {
@@ -55,6 +63,7 @@
 <body>
     <header class="header">
         <div class="Menu container">
+            <h1 style="text-align: center; color: rgb(5, 129, 163);">Compañeros Estilo & Elegancia</h1>
             <div class="header-content">
                 <a href="index.html" class="logo">
                     <img src="Imagenes/icononew.jpg" alt="o" width="200" height="200">
@@ -64,7 +73,7 @@
     </header>
 
     <div class="container">
-        <h1>Compañeros Estilo & Elegancia</h1>
+        <h1 style="text-align: center; color: rgb(5, 129, 163);">Control de Registros De clientes</h1>
         <button id="btn-turno">Obtener turno</button>
         <button id="btn-agregar">Agregar turno</button>
         <button id="btn-eliminar-todos">Eliminar todos los turnos</button>
@@ -73,7 +82,7 @@
             <ul id="lista-turnos"></ul>
         </div>
         <div id="formulario">
-            <h2>Administrar Turnos:</h2>
+            <h2>Administrar Turnos por llegada:</h2>
             <form id="form-turno">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" required>
