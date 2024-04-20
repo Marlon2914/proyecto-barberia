@@ -187,7 +187,18 @@
 
   <h2>Carrito de compra</h2>
   <table id="cartTable">
-    <!-- Agregue la estructura de la tabla de su carrito aquí -->
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+        <th>Subtotal</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody id="cart-body">
+      <!-- Aquí se llenarán dinámicamente los productos del carrito -->
+    </tbody>    
   </table>
 
   <div style="text-align: center;">
@@ -355,7 +366,8 @@
 
   let total = 0;
 
-  products.forEach(product => {
+  cart.forEach(item => {
+    const product = products.find(p => p.id === item.productId);
     reportWindow.document.write(`
       <tr>
         <td>${product.id}</td>
@@ -364,13 +376,16 @@
         <td>$${product.price.toFixed(2)}</td>
       </tr>
     `);
-    total += product.price;
+    total += product.price * item.quantity;
   });
 
   reportWindow.document.write(`
           </tbody>
         </table>
-        <p>Total: $${total.toFixed(2)}</p>
+        <td>$${total.toFixed(2)}</td>
+      </tr>
+      </tfoot>
+      </table>
       </body>
     </html>
   `);
