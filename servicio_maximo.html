@@ -1,14 +1,33 @@
 <!DOCTYPE html>
-<html>
-
-<head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        h1 {
-            text-align: center;
+      body {
+            font-family: 'Roboto Slab', serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("Imagenes/bg.JPG");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
-        description {
-            margin-bottom: 10px;
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+        margin-bottom: 25px;
         }
     </style>
 </head>
@@ -16,6 +35,7 @@
 <body>
     <header class="header">
         <div class="Menu container">
+            <h1 style="text-align: center; color: rgb(5, 129, 163);">Compañeros Estilo & Elegancia</h1>
             <div class="header-content">
                 <a href="index.html" class="logo">
                     <img src="Imagenes/icononew.jpg" alt="o" width="200" height="200">
@@ -23,8 +43,8 @@
             </div>
 
     <div class="container">
-        <h1>Compañeros Estilo & Elegancia</h1>
-    <h1>Servicio Maximo</h1>
+
+    <h1 style="text-align: center; color: rgb(5, 129, 163);">Servicio Maximo</h1>
     <description>Corte de cabello personalizado: Este servicio incluye una consulta más detallada con el cliente para
         entender sus preferencias y estilo personalizado</description>
 
@@ -45,31 +65,56 @@
     </p>
 
     <table>
+        <thead>
+            <tr>
+                <th scope="col">Servicio</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
         <tbody>
             <tr>
-                <th>Corte clasico</th>
-                <td>$400</td>
+                <td>Corte de cabello estándar</td>
+                <td>$300</td>
             </tr>
             <tr>
-                <th>Tratamientos de barba</th>
+                <td>Tinte de pelo masculino</td>
                 <td>$600</td>
             </tr>
             <tr>
-                <th>Solo afeitado de barba</th>
+                <td>Solo afeitado de barba</td>
                 <td>$180</td>
             </tr>
             <tr>
-                <th>Cerquilo</th>
+                <td>Cerquilo</td>
                 <td>$200</td>
             </tr>
             <tr>
-            <tr>
-                <th>Recorte de niños</th>
+                <td>Recorte de niños</td>
                 <td>$150</td>
             </tr>
-            <th>A Domicilio</th>
-            <td>$1200</td>
+            <tr>
+                <td>A Domicilio</td>
+                <td>$1200</td>
             </tr>
+            <tr>
+                <td>Recorte y modelado de barba</td>
+                <td>$250</td>
+            </tr>
+            <tr>
+                <td>Tratamientos faciales</td>
+                <td>$450</td>
+            </tr>
+            <tr>
+                <td>Masajes Capilares</td>
+                <td>$300</td>
+            </tr>
+            <tr>
+                <td>Coloración de barba y cabello</td>
+                <td>$350</td>
+            </tr>
+        </tbody>
+    </table>
+</main>
         </tbody>
     </table>
 
